@@ -1,6 +1,6 @@
 import cpp 
 import semmle.code.cpp.Macro
 
-from MacroAccess m
-where m.getMacroName().matches("ntoh%")
+from Macro m
+where m.getName().matches("ntoh%")
 select m
