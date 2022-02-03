@@ -19,7 +19,7 @@ class MyTaintTrackingConfiguration extends TaintTracking::Configuration {
     }
 
     override predicate isSink(DataFlow::Node sink) {
-        exists(FunctionCall fc | fc.getTarget().getName().matches("memcpy") and sink.asExpr() = fc)
+        exists(FunctionCall fc | fc.getTarget().getName().matches("memcpy") and fc.getArgument(2) = sink.asExpr())
     }
 }
 
